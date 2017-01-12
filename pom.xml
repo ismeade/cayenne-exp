@@ -12,6 +12,7 @@
         <module>cayenne-rop-client</module>
         <module>cayenne-base</module>
         <module>cayenne-mult</module>
+        <module>cayenne-share</module>
     </modules>
 
     <packaging>pom</packaging>

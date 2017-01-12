@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <domain project-version="6">
+	<property name="cayenne.DataRowStore.EventBridge.factory" value="org.apache.cayenne.event.JavaGroupsBridgeFactory"/>
+	<property name="cayenne.DataRowStore.remote.notify" value="true"/>
+	<property name="cayenne.JavaGroupsBridge.mcast.address" value="192.168.101.161"/>
+	<property name="cayenne.JavaGroupsBridge.mcast.port" value="22222"/>
+
 	<map name="datamap"/>
 
 	<node name="datanode"
@@ -9,7 +14,7 @@
 		<map-ref name="datamap"/>
 		<data-source>
 			<driver value="com.mysql.jdbc.Driver"/>
-			<url value="jdbc:mysql://101.200.62.196:3306/dev/base"/>
+			<url value="jdbc:mysql://101.200.62.196:3306/dev/share"/>
 			<connectionPool min="1" max="1"/>
 			<login userName="dev" password="dev123456"/>
 		</data-source>

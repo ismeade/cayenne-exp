@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/3.0/modelMap"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap http://cayenne.apache.org/schema/3.0/modelMap.xsd"
+	 project-version="6">
+	<property name="defaultPackage" value="com.ade.exp.cayenne.share.persistent"/>
+	<db-entity name="USER">
+		<db-attribute name="USER_ADDRESS" type="VARCHAR" length="200"/>
+		<db-attribute name="USER_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="USER_NAME" type="VARCHAR" length="20"/>
+	</db-entity>
+	<obj-entity name="User" className="com.ade.exp.cayenne.share.persistent.User" dbEntityName="USER">
+		<obj-attribute name="userAddress" type="java.lang.String" db-attribute-path="USER_ADDRESS"/>
+		<obj-attribute name="userName" type="java.lang.String" db-attribute-path="USER_NAME"/>
+	</obj-entity>
+</data-map>
