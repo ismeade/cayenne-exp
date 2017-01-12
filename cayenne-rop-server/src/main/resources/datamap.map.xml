@@ -4,9 +4,9 @@
 	 xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap http://cayenne.apache.org/schema/3.0/modelMap.xsd"
 	 project-version="6">
 	<property name="defaultLockType" value="optimistic"/>
-	<property name="defaultPackage" value="com.ade.cayenne.persistent"/>
+	<property name="defaultPackage" value="com.ade.exp.cayenne.rop.server.persistent"/>
 	<property name="clientSupported" value="true"/>
-	<property name="defaultClientPackage" value="com.ade.cayenne.persistent.client"/>
+	<property name="defaultClientPackage" value="com.ade.exp.cayenne.rop.server.persistent.client"/>
 	<db-entity name="COMPANY">
 		<db-attribute name="COMPANY_ADDRESS" type="VARCHAR" length="200"/>
 		<db-attribute name="COMPANY_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
@@ -20,11 +20,11 @@
 		<db-attribute name="USER_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
 		<db-attribute name="USER_NAME" type="VARCHAR" length="20"/>
 	</db-entity>
-	<obj-entity name="Company" className="com.ade.cayenne.persistent.Company" clientClassName="com.ade.cayenne.persistent.client.Company" lock-type="optimistic" dbEntityName="COMPANY">
+	<obj-entity name="Company" className="com.ade.exp.cayenne.rop.server.persistent.Company" clientClassName="com.ade.exp.cayenne.rop.client.persistent.Company" lock-type="optimistic" dbEntityName="COMPANY">
 		<obj-attribute name="companyAddress" type="java.lang.String" lock="true" db-attribute-path="COMPANY_ADDRESS"/>
 		<obj-attribute name="companyName" type="java.lang.String" lock="true" db-attribute-path="COMPANY_NAME"/>
 	</obj-entity>
-	<obj-entity name="User" className="com.ade.cayenne.persistent.User" clientClassName="com.ade.cayenne.persistent.client.User" lock-type="optimistic" dbEntityName="USER">
+	<obj-entity name="User" className="com.ade.exp.cayenne.rop.server.persistent.User" clientClassName="com.ade.exp.cayenne.rop.client.persistent.User" lock-type="optimistic" dbEntityName="USER">
 		<obj-attribute name="userAddress" type="java.lang.String" lock="true" db-attribute-path="USER_ADDRESS"/>
 		<obj-attribute name="userDesc" type="java.lang.String" lock="true" db-attribute-path="USER_DESC"/>
 		<obj-attribute name="userGender" type="java.lang.Integer" lock="true" db-attribute-path="USER_GENDER"/>

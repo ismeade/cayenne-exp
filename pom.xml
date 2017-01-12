@@ -10,6 +10,8 @@
     <modules>
         <module>cayenne-rop-server</module>
         <module>cayenne-rop-client</module>
+        <module>cayenne-base</module>
+        <module>cayenne-mult</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -37,6 +39,7 @@
                     <stripVersion>false</stripVersion>
                 </configuration>
             </plugin>
+            <!-- cayenne-modeler mvn plugin $mvn cayenne-modeler:run -->
             <plugin>
                 <groupId>org.apache.cayenne.plugins</groupId>
                 <artifactId>maven-cayenne-modeler-plugin</artifactId>
