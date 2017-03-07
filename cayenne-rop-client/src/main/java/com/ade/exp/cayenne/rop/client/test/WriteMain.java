@@ -21,13 +21,22 @@ public class WriteMain {
         DataChannel channel = new ClientChannel(connection, false, new DefaultEventManager(), false);
         ObjectContext context = new CayenneContext(channel);
 
+//        User user = context.newObject(User.class);
+//        user.setUserName("tom67");
+//        context.commitChanges();
+//        user.setUserAddress("text");
+//        context.commitChanges();
+
         User user = Cayenne.objectForPK(context, User.class, 220);
         System.out.println(user.getUserName());
         System.out.println(user.getUserAddress());
         user.setUserAddress("testAddress");
         System.out.println(user.getUserAddress());
         try {
+            System.out.println("User:" + user);
             context.commitChanges();
+//            context.commitChangesToParent();
+            System.out.println("User:" + user);
             System.out.println(user.getUserAddress());
 
         } catch (Exception e) {

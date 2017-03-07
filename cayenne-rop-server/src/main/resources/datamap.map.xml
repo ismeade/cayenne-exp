@@ -3,7 +3,6 @@
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap http://cayenne.apache.org/schema/3.0/modelMap.xsd"
 	 project-version="6">
-	<property name="defaultLockType" value="optimistic"/>
 	<property name="defaultPackage" value="com.ade.exp.cayenne.rop.server.persistent"/>
 	<property name="clientSupported" value="true"/>
 	<property name="defaultClientPackage" value="com.ade.exp.cayenne.rop.server.persistent.client"/>

@@ -25,19 +25,32 @@ public class BasicQuery {
     ObjectContext context = cayenneRuntime.getContext();
 
     /**
-     * 主键查询
+     * 主键查询(优先从缓存中获取)
+     * @param pk
+     */
+    public void getUserByPk1(Integer pk) {
+        try {
+            User user = Cayenne.objectForPK(context, User.class, pk);
+            logger.info("User:" + user);
+        } catch (Exception e) {
+            logger.error(e.getLocalizedMessage(), e);
+        }
+    }
+
+    /**
+     * 主键查询(通过参数决定是否优先从缓存中获取)
      * @param pk 主键
      */
     public void getUser1(Integer pk) {
-        ObjectId id = new ObjectId(User.class.getSimpleName(), User.ID_PK_COLUMN, pk);
-        ObjectIdQuery query = new ObjectIdQuery(id);
-        User user = null;
         try {
-            user = (User) Cayenne.objectForQuery(context, query);
+            ObjectId id = new ObjectId(User.class.getSimpleName(), User.ID_PK_COLUMN, pk);
+            // 表示刷新缓存，从表中从新获取数据
+            ObjectIdQuery query = new ObjectIdQuery(id, false, ObjectIdQuery.CACHE_REFRESH);
+            User user = (User) Cayenne.objectForQuery(context, query);
+            logger.info("User:" + user);
         } catch (Exception e) {
             logger.error("select error:" + e.getLocalizedMessage(), e);
         }
-        logger.info("User:" + user);
     }
 
     /**
@@ -132,7 +145,11 @@ public class BasicQuery {
 
 
     public static void main(String[] args) {
-        BasicQuery basicQuery = new BasicQuery();
+        ServerRuntime cayenneRuntime = new ServerRuntime("cayenne-base.xml");
+        ObjectContext context = cayenneRuntime.getContext();
+        Expression expression = ExpressionFactory.greaterOrEqualDbExp(User.EMAIL_PROPERTY, "12");
+        SelectQuery selectQuery = new SelectQuery(User.class, expression);
+        System.out.println(context.performQuery(selectQuery));
     }
 
 }
