@@ -41,11 +41,11 @@ public class BasicUp {
      */
     public void insertPkObject() {
         try {
-            DataObject author = new CayenneDataObject();
-            author.setObjectId(new ObjectId(User.class.getSimpleName(), User.ID_PK_COLUMN, 888));
-            author.writeProperty(User.NAME_PROPERTY, "User888");
-            author.writeProperty(User.AGE_PROPERTY, 88);
-            context.registerNewObject(author);
+            User user = new User();
+            user.setObjectId(new ObjectId(User.class.getSimpleName(), User.ID_PK_COLUMN, 888));
+            user.setName("user888");
+            user.setAge(88);
+            context.registerNewObject(user);
             context.commitChanges();
         } catch (Exception e) {
             logger.error("insert error:" + e.getLocalizedMessage(), e);
@@ -53,7 +53,8 @@ public class BasicUp {
     }
 
     public static void main(String[] args) {
-        new BasicUp().insertObject();
+//        new BasicUp().insertObject();
+        new BasicUp().insertPkObject();
     }
 
 }
