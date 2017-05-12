@@ -45,7 +45,4 @@
 	</db-relationship>
 	<obj-relationship name="user" source="Company" target="User" deleteRule="Deny" db-relationship-path="user"/>
 	<obj-relationship name="company" source="User" target="Company" lock="true" deleteRule="Nullify" db-relationship-path="company"/>
-	<query name="findCountry" factory="org.apache.cayenne.map.SelectQueryBuilder" root="obj-entity" root-name="Country">
-		<property name="cayenne.GenericSelectQuery.cacheStrategy" value="SHARED_CACHE"/>
-	</query>
 </data-map>
