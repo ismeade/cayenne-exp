@@ -2,6 +2,7 @@ package com.ade.exp.cayenne.base.query;
 
 import com.ade.exp.cayenne.base.persistent.Company;
 import com.ade.exp.cayenne.base.persistent.User;
+import org.apache.cayenne.Cayenne;
 import org.apache.cayenne.CayenneException;
 import org.apache.cayenne.DataRow;
 import org.apache.cayenne.ObjectContext;

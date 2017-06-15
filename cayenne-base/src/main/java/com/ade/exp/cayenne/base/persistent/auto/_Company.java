@@ -18,7 +18,7 @@ public abstract class _Company extends CayenneDataObject {
     public static final String NAME_PROPERTY = "name";
     public static final String USER_PROPERTY = "user";
 
-    public static final String ID_PK_COLUMN = "id";
+    public static final String ID_PK_COLUMN = "ID";
 
     public void setAddress(String address) {
         writeProperty(ADDRESS_PROPERTY, address);
@@ -45,5 +45,21 @@ public abstract class _Company extends CayenneDataObject {
         return (List<User>)readProperty(USER_PROPERTY);
     }
 
+
+    protected abstract void onPostAdd();
+
+    protected abstract void onPreRemove();
+
+    protected abstract void onPreUpdate();
+
+    protected abstract void onPostPersist();
+
+    protected abstract void onPostRemove();
+
+    protected abstract void onPostUpdate();
+
+    protected abstract void onPostLoad();
+
+    protected abstract void onPrePersist();
 
 }

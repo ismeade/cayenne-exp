@@ -26,6 +26,14 @@
 	<obj-entity name="Company" className="com.ade.exp.cayenne.base.persistent.Company" dbEntityName="COMPANY">
 		<obj-attribute name="address" type="java.lang.String" db-attribute-path="ADDRESS"/>
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
+		<post-add method-name="onPostAdd"/>
+		<pre-persist method-name="onPrePersist"/>
+		<post-persist method-name="onPostPersist"/>
+		<pre-update method-name="onPreUpdate"/>
+		<post-update method-name="onPostUpdate"/>
+		<pre-remove method-name="onPreRemove"/>
+		<post-remove method-name="onPostRemove"/>
+		<post-load method-name="onPostLoad"/>
 	</obj-entity>
 	<obj-entity name="Country" className="com.ade.exp.cayenne.base.persistent.Country" dbEntityName="COUNTRY">
 		<obj-attribute name="code" type="java.lang.Integer" db-attribute-path="CODE"/>
